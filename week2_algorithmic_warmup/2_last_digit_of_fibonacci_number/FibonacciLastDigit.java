@@ -22,7 +22,7 @@ public class FibonacciLastDigit {
             return n;
         }
         int first = 0, sec = 1;
-        for (int i = 2; i <= n; i_++) {
+        for (int i = 2; i <= n; i++) {
             int tmp = (first%10 + sec%10)%10;
             first = sec;
             sec = tmp;

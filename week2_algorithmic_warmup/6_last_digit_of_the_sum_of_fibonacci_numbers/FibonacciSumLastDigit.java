@@ -38,7 +38,7 @@ public class FibonacciSumLastDigit {
         }
         long first = 0, sec = 1, sum = 1;
         for (long i = 2; i <= n; i++) {
-            long tmp = (first+sec)%10;
+            long tmp = (first%10+sec%10)%10;
             sum += tmp;
             first = sec;
             sec = tmp;
@@ -66,8 +66,10 @@ public class FibonacciSumLastDigit {
         Scanner scanner = new Scanner(System.in);
         long n = scanner.nextLong();
         long x = getPisanoPeriod(10);
-        System.out.println(getFibonacciSumFast(n%x));
-        stressTest();
+        n = n % x;
+        long s = getFibonacciSumFast(n);
+        System.out.println(s);
+        //stressTest();
     }
 }
 

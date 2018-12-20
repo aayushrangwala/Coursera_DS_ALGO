@@ -30,26 +30,25 @@ public class FibonacciHuge {
         return -1;  
     }
 
-    private static long getFibonacciSumFast (long n) {
+    private static long getFibonacciHugeFast (long n, long m) {
         if (n <= 1) {
             return n;
         }
         long first = 0, sec = 1, sum = 1;
         for (long i = 2; i <= n; i++) {
-            long tmp = (first+sec)%10;
-            sum += tmp;
+            long tmp = (first+sec)%m;
             first = sec;
             sec = tmp;
         }
-        return sum%10;
+        return sec%m;
     }
 
-    private static void stressTest () {
+    /*private static void stressTest () {
         while (true) {
             Random r = new Random();
             long n = r.nextInt(10);
-            long res = getFibonacciSumNaive(n);
-            long res1 = getFibonacciSumFast(n);
+            long res = getFibonacciHugeNaive(n);
+            long res1 = getFibonacciHugeFast(n);
             if (res == res1) {
                 System.out.println("OK");
             } else {
@@ -57,14 +56,14 @@ public class FibonacciHuge {
                 break;
             }
         }
-    }
+    }*/
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         long n = scanner.nextLong();
         long m = scanner.nextLong();
         long x = getPisanoPeriod(m);
-        System.out.println(getFibonacciHugeFast(n%m));
+        System.out.println(getFibonacciHugeFast(n%x, m));
     }
 }
 
