@@ -16,7 +16,7 @@ public class DotProduct {
 
         long result = 0;
         for (int i = 0; i < x.length; i++) {
-            result += x[i] * y[i];
+            result += ((long)x[i]) * ((long)y[i]);
         }
         return result;
     }

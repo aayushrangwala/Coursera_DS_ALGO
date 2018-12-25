@@ -4,6 +4,16 @@ public class DifferentSummands {
     private static List<Integer> optimalSummands(int n) {
         List<Integer> summands = new ArrayList<Integer>();
         //write your code here
+        int x = 1;
+        while (n > 0) {
+            if ((n-x) <= x) {
+                summands.add(n);
+                break;
+            }
+            summands.add(x);
+            n -= x;
+            x++;
+        }
         return summands;
     }
     
