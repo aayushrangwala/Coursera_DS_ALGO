@@ -5,10 +5,7 @@ import java.util.*;
 class BinarySearch {
 
     static int binarySearch(int[] a, int key) {
-        Arrays.sort(a);
-        if (key < a[0] || key > a[a.length-1]) {
-            return -1;
-        }
+        //Arrays.sort(a);
         int left = 0, right = a.length;
         //quickSort(a, left, right);
         //write your code here
@@ -59,14 +56,19 @@ class BinarySearch {
             a[i] = scanner.nextInt();
         }
         int m = scanner.nextInt();
-        int[] b = new int[m];
+        /*int[] b = new int[m];
         for (int i = 0; i < m; i++) {
           b[i] = scanner.nextInt();
-        }
+        }*/
         
         for (int i = 0; i < m; i++) {
             //replace with the call to binarySearch when implemented
-            System.out.print(binarySearch(a, b[i]) + " ");
+            int key = scanner.nextInt();
+            if (key < a[0] || key > a[n-1]) {
+                System.out.print("-1 ");
+            } else {
+                System.out.print(binarySearch(a, key) + " ");
+            }
             
         }
         //quickSort(a, 0, a.length-1);
