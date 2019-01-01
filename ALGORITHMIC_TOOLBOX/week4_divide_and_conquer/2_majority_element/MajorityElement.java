@@ -10,6 +10,20 @@ public class MajorityElement {
             return a[left];
         }
         //write your code here
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        int maxCount = 0;
+        for (int x : a) {
+            if (map.containsKey(x)) {
+                map.put(x, map.get(x)+1);
+            } else {
+                map.put(x, 1);    
+            }
+            
+            maxCount = (maxCount < map.get(x)) ? map.get(x) : maxCount;
+        }
+        if (maxCount > right/2) {
+            return 1;
+        }
         return -1;
     }
 
@@ -20,7 +34,7 @@ public class MajorityElement {
         for (int i = 0; i < n; i++) {
             a[i] = scanner.nextInt();
         }
-        if (getMajorityElement(a, 0, a.length) != -1) {
+        if (getMajorityElement(a, 0, n) != -1) {
             System.out.println(1);
         } else {
             System.out.println(0);
