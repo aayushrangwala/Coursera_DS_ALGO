@@ -35,7 +35,7 @@ public class Sorting {
             }
         }
         m1 = l-1;
-        m2 = r;
+        m2 = mid;
         m[0] = m1;
         m[1] = m2;
         return m;
@@ -82,11 +82,11 @@ public class Sorting {
             int m1 = m[0];
             int m2 = m[1];
             if (m1-l < r-m2) {
-                randomizedQuickSort(a, l, m[0] - 1);
-                l = m2+1;
+                randomizedQuickSort(a, l, m1);
+                l = m2;
             } else {
-                randomizedQuickSort(a, m[1] + 1, r);
-                l = m1-1;
+                randomizedQuickSort(a, m2, r);
+                r = m1;
             }
         }
     }
